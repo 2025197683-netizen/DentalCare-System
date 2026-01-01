@@ -1,0 +1,488 @@
+/* ================= RESET ================= */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  font-family: "Segoe UI", sans-serif;
+  margin: 0;
+}
+
+/* ================= BACKGROUND WITH OVERLAY ================= */
+.login-page {
+  position: relative;
+  min-height: 100vh;
+  background: url("bg2.jpg") no-repeat center center;
+  background-size: cover;
+  overflow: hidden;
+}
+
+/* GRADIENT OVERLAY (MACAM CONTACT US) */
+.login-page::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(2, 35, 90, 0.88),
+    rgba(2, 35, 90, 0.55),
+    rgba(2, 35, 90, 0.25)
+  );
+  z-index: 1;
+}
+
+/* Pastikan semua content atas overlay */
+.login-page > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* ================= SYSTEM HEADER (PREMIUM) ================= */
+.system-header {
+  position: absolute;
+  top: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 12px 32px;
+
+  /* Glassmorphism */
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(14px);
+  border-radius: 50px;
+
+  z-index: 20;
+}
+
+/* DCS */
+.system-short {
+  font-size: 64px;
+  font-weight: 900;
+  letter-spacing: 3px;
+  line-height: 1;
+  background: linear-gradient(135deg, #0d6efd, #38bdf8);
+  background-clip: text; 
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* FULL NAME */
+.system-full {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #ffffff;
+  white-space: nowrap;
+}
+
+/* ================= LAYOUT ================= */
+.login-wrapper {
+  display: flex;
+  min-height: 100vh;
+  padding-top: 115px;
+}
+
+/* LEFT */
+.login-left {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 0px; /* laras ikut selera: 20px – 60px */
+}
+
+/* RIGHT */
+.login-right {
+  flex: 1;
+  padding: 60px;
+  display: flex;
+  align-items: center;
+}
+
+/* ================= LOGIN CARD ================= */
+.login-card {
+  width: 100%;
+  max-width: 420px;
+  background: rgba(255,255,255,0.96);
+  border-radius: 20px;
+  border: 2px solid rgba(13,110,253,0.35);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.25);
+}
+
+/* LOGO */
+.login-logo {
+  width: 130px;
+  padding: 12px;
+  background: #ffffff;
+  border: 2px solid #0d6efd;
+  border-radius: 18px;
+}
+
+/* INPUT */
+.form-control {
+  border-radius: 10px;
+  border: 1.5px solid #ced4da;
+}
+
+.form-control:focus {
+  border-color: #0d6efd;
+  box-shadow: none;
+}
+
+/* BUTTON */
+.btn-primary {
+  border-radius: 10px;
+  font-weight: 600;
+}
+
+/* ================= INFO GRID ================= */
+.info-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+}
+
+/* ================= INFO CARD ================= */
+.info-card {
+  position: relative;
+  height: 240px;
+  border-radius: 28px;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 18px 40px rgba(0,0,0,0.35);
+  overflow: hidden;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.info-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 24px 55px rgba(0,0,0,0.45);
+}
+
+/* OVERLAY */
+.info-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.55),
+    rgba(0,0,0,0.25)
+  );
+}
+
+/* ================= CARD BACKGROUND IMAGES ================= */
+.bg-clinical     { background-image: url("bg3.jpg"); }
+.bg-resource     { background-image: url("bg4.jpg"); }
+.bg-practitioner { background-image: url("bg5.jpg"); }
+.bg-survey       { background-image: url("bg6.jpg"); }
+
+/* ================= CARD LABEL ================= */
+.card-label {
+  position: absolute;
+  bottom: 22px;
+  left: 22px;
+  padding: 9px 22px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #ffffff;
+  z-index: 2;
+}
+
+/* LABEL COLORS */
+.card-label.clinical     { background: #2b6cff; }
+.card-label.resource     { background: #2b6cff; }
+.card-label.practitioner { background: #2b6cff; }
+.card-label.survey       { background: #2b6cff; }
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 992px) {
+  .login-wrapper {
+    flex-direction: column;
+    padding-top: 180px;
+  }
+
+  .login-right {
+    padding: 30px;
+  }
+
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .system-header {
+    flex-direction: column;
+    gap: 8px;
+    padding: 16px 26px;
+  }
+
+  .system-short {
+    font-size: 48px;
+  }
+
+  .system-full {
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-align: center;
+  }
+}
+
+/* =========================================================
+   DASHBOARD BACKGROUND – GELAP ATAS → PUTIH BAWAH
+========================================================= */
+
+.dashboard-page {
+  min-height: 100vh;
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(2, 35, 90, 0.85) 0%,
+      rgba(2, 35, 90, 0.65) 30%,
+      rgba(255, 255, 255, 0.85) 75%,
+      rgba(255, 255, 255, 0.98) 100%
+    ),
+    url("bg2.jpg") no-repeat center center fixed;
+  background-size: cover;
+  font-family: "Segoe UI", sans-serif;
+}
+
+
+/* =========================================================
+   DASHBOARD WHITE GLASS CONTAINER
+========================================================= */
+.dashboard-container {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 28px;
+  padding: 48px;
+  box-shadow: 0 35px 70px rgba(0,0,0,0.3);
+}
+
+/* =========================================================
+   DASHBOARD SUMMARY CARDS
+========================================================= */
+.dashboard-card {
+  border-radius: 20px;
+  padding: 28px;
+  color: #ffffff;
+  font-weight: 600;
+  box-shadow: 0 18px 40px rgba(0,0,0,0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dashboard-card p {
+  margin-bottom: 10px;
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+.dashboard-card h3 {
+  font-size: 38px;
+  font-weight: 800;
+  margin: 0;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 28px 55px rgba(0,0,0,0.35);
+}
+
+/* CARD COLORS */
+.card-blue {
+  background: linear-gradient(135deg, #0d6efd, #3b82f6);
+}
+
+.card-orange {
+  background: linear-gradient(135deg, #f97316, #fb923c);
+}
+
+.card-purple {
+  background: linear-gradient(135deg, #7c3aed, #a78bfa);
+}
+
+.card-green {
+  background: linear-gradient(135deg, #16a34a, #4ade80);
+}
+
+/* =========================================================
+   CHART CARD
+========================================================= */
+.chart-card {
+  border-radius: 22px;
+  box-shadow: 0 20px 45px rgba(0,0,0,0.2);
+}
+
+/* =========================================================
+   TABLE
+========================================================= */
+.table thead th {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.table tbody tr:hover {
+  background-color: rgba(13, 110, 253, 0.06);
+}
+
+/* =========================================================
+   NAVBAR (BIAR NAIK ATAS BACKGROUND)
+========================================================= */
+.navbar {
+  backdrop-filter: blur(10px);
+}
+
+.navbar-brand {
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+footer {
+  color: rgba(255,255,255,0.85);
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+@media (max-width: 768px) {
+  .dashboard-container {
+    padding: 28px;
+    border-radius: 20px;
+  }
+
+  .dashboard-card h3 {
+    font-size: 30px;
+  }
+}
+
+/* ================= SYSTEM INTRO SECTION ================= */
+
+.system-intro {
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 22px;
+  padding: 35px;
+  box-shadow: 0 18px 40px rgba(0,0,0,0.12);
+}
+
+.system-intro h4 {
+  letter-spacing: 0.5px;
+}
+
+.system-intro p {
+  font-size: 15px;
+}
+
+/* ================= SERVICE CARDS ================= */
+
+.service-card {
+  height: 100%;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 18px;
+  padding: 24px;
+  text-align: center;
+  box-shadow: 0 12px 28px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card span {
+  font-size: 36px;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.service-card h6 {
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.service-card p {
+  font-size: 14px;
+  color: #555;
+}
+
+.service-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 22px 45px rgba(0,0,0,0.18);
+}
+
+/* ===== DOCTORS CARD BACKGROUND IMAGE ===== */
+.card-doctors {
+  background-image: url("../css/bg7.jpg");
+  background-size: cover;
+  background-position: center;
+  min-height: 140px;
+  border-radius: 22px;
+  box-shadow: 0 20px 45px rgba(0,0,0,0.25);
+  overflow: hidden;
+  position: relative;
+}
+
+.card-doctors .card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 85, 255, 0.85) 0%,
+    rgba(0, 120, 255, 0.65) 35%,
+    rgba(0, 150, 255, 0.35) 65%,
+    rgba(0, 0, 0, 0.15) 100%
+  );
+}
+
+/* ================= NAVBAR LINK EFFECT ================= */
+.navbar-nav .nav-link {
+  position: relative;
+  color: rgba(255,255,255,0.85);
+  padding: 8px 14px;
+  margin: 0 4px;
+  border-radius: 8px;
+  transition: all 0.25s ease;
+}
+
+/* Hover Effect */
+.navbar-nav .nav-link:hover {
+  color: #fff;
+  background: rgba(255,255,255,0.15);
+}
+
+/* Bottom Border Animation */
+.navbar-nav .nav-link::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -4px;
+  width: 0;
+  height: 3px;
+  background: #ffffff;
+  border-radius: 4px;
+  transition: all 0.25s ease;
+  transform: translateX(-50%);
+}
+
+/* Hover underline */
+.navbar-nav .nav-link:hover::after {
+  width: 60%;
+}
+
+/* ACTIVE PAGE */
+.navbar-nav .nav-link.active {
+  color: #fff;
+  background: rgba(255,255,255,0.2);
+  font-weight: 600;
+}
+
+/* Active underline */
+.navbar-nav .nav-link.active::after {
+  width: 70%;
+}
+

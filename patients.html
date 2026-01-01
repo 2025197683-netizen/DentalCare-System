@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>DCS | Patients</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body data-auth="true" class="dashboard-page">
+
+<!-- ================= NAVBAR ================= -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-bold" href="dashboard.html">DentalCare+</a>
+
+    <div class="collapse navbar-collapse show">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item"><a class="nav-link" href="dashboard.html">Dashboard</a></li>
+        <li class="nav-item"><a class="nav-link" href="appointments.html">Appointments</a></li>
+        <li class="nav-item"><a class="nav-link active" href="patients.html">Patients</a></li>
+        <li class="nav-item"><a class="nav-link" href="contactus.html">Contact Us</a></li>
+      </ul>
+
+      <div class="d-flex align-items-center gap-2">
+        <img src="css/logo.jpg"
+             style="height:32px;background:#fff;padding:4px;border-radius:6px;">
+        <button id="logoutBtn" class="btn btn-outline-light btn-sm">Logout</button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ================= MAIN ================= -->
+<main class="container my-5 dashboard-container">
+
+  <!-- ===== HEADER ===== -->
+  <div class="mb-4">
+    <h2 class="fw-bold mb-1">Patients</h2>
+    <p class="text-muted">
+      Overview of registered patients and their clinic visit records.
+    </p>
+  </div>
+
+  <!-- ================= SUMMARY CARDS ================= -->
+  <div class="row g-4 mb-5">
+    <div class="col-md-4">
+      <div class="dashboard-card card-blue">
+        <p>Total Patients</p>
+        <h3 id="totalPatients">0</h3>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="dashboard-card card-blue">
+        <p>Male Patients</p>
+        <h3 id="malePatients">0</h3>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="dashboard-card card-blue">
+        <p>Female Patients</p>
+        <h3 id="femalePatients">0</h3>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= PATIENT TABLE ================= -->
+  <div class="card shadow-sm border-0">
+    <div class="card-body">
+      <h5 class="fw-bold mb-3">Patient List</h5>
+
+      <div class="table-responsive">
+        <table class="table table-hover align-middle">
+          <thead class="table-light">
+            <tr>
+              <th>#</th>
+              <th>Full Name</th>
+              <th>IC / ID</th>
+              <th>Phone</th>
+              <th>Gender</th>
+              <th>Last Visit</th>
+            </tr>
+          </thead>
+          <tbody id="patientsTable">
+            <!-- Filled by JS -->
+          </tbody>
+        </table>
+      </div>
+
+      <p class="text-muted small mt-3">
+        * Patient information shown is for demonstration purposes only.
+      </p>
+    </div>
+  </div>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="text-center text-muted py-4">
+  © 2025 Clinic Appointment System | IMS566 Project
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/main.js"></script>
+
+</body>
+</html>
